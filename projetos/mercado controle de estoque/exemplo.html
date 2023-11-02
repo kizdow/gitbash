@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div>
+        <h2>Insira seu Usuario:</h2>
+        <input type="text" id="userInput">
+
+        <h2>Insira sua senha:</h2>
+        <input type="password" id="senhaInput">
+
+        <button onclick="validarLogin()">Login</button>
+    </div>
+
+    <script>
+        function validarLogin() { 
+            let usuarioFixo = "Alex"
+            let senhaFixa = "123"
+
+            let usuario = document.getElementById("userInput").value;
+            let senha = document.getElementById("senhaInput").value;
+
+            if ((usuario == usuarioFixo) && (senha == senhaFixa)) {
+                window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/Maravilha/Exemplo consulta estoque/consulta.html";
+            } else {
+                window.alert("Logou não");
+            }
+        };
+
+    </script>
+</body>
+
+</html>
+
+
+
+            
+            
+
+            
+        
