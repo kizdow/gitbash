@@ -2,37 +2,77 @@
 <html>
 
 <head>
+    <title>Document</title>
+    <meta charset="UTF-8">
 </head>
 
 <body>
-
+    <!-- Contem a tela com os campos de entrada de dados e botoes -->
     <div>
-        <h2> Incira o código do produto:</h2>
+        <h2>Insira o código do produto:</h2>
         <input type="text" id="produtoInput">
-        <button onclick="pesquisarProduto()">Pesquisar</button>
+        <button onclick="exibirDados()">Pesquisar</button>
+        <button onclick="listarProduto()">Relatório de Estoque</button>
         </br>
+        <button onclick="adicionarCompras()">Comprar produto</button>
+        <button onclick="relatorioCompras()">Relatório de Compras</button>
         </br>
-        <h2>Dados do produto:</h2>
+        <h2>Dados do produto:</h2>  
         <div id="dadosProduto"></div>
+        <h2 id="textoCompra"></h2>
+        <div id="Lista"></div>  
     </div>
 
     <script>
+        //simulando um banco de dados utilizando uma array
         var produtos = [
-            {codigo:1, descricao: "abacaxi",quantidade:10},
-            {codigo:2, descricao: "banana" ,quantidade:5 },
-            {codigo:3, descricao: "coco"   ,quantidade:8 },
+            { codigo: 1, descricao: 'Produto A', quantidade: 10 },
+            { codigo: 2, descricao: 'Produto B', quantidade: 5 },
+            { codigo: 3, descricao: 'Produto C', quantidade: 8 },
         ];
 
-        function pesquisarProduto() {
+        //Função para listar os dados da array na div com id dadosProduto, listara de acordo com a posição enviada da array e não todos os itens de uma vez
+        function exibirDados() {
             var codigo = document.getElementById("produtoInput").value;
-            dadosProduto.innerHTML =
-            "Código: " +    (produtos[codigo - 1].codigo)      + " - " +
-            "Descrição: " + (produtos[codigo - 1].descricao)   + " - " +
-            "QTD: " +       (produtos[codigo - 1].quantidade);
-        };
-            
-    </script>
 
+            dadosProduto.innerHTML =
+                "EAN: " + (produtos[codigo - 1].codigo)
+                + " - " +
+                "Descrição: " + (produtos[codigo - 1].descricao) +
+                " - " +
+                "QTD: " + (produtos[codigo - 1].quantidade);
+        };
+
+        //Lista todos os produtos da array de umam vez, usando um laço de repetição, para que mostre todos os itens da mesma
+        function listarProduto() {
+            var conteudo = "";
+
+            for (var i = 0; i < produtos.length; i++) {
+                conteudo += "Código: " + produtos[i].codigo + ", Descrição: " + produtos[i].descricao + ", Quantidade: " + produtos[i].quantidade + "<br>";
+            }
+
+            dadosProduto.innerHTML = conteudo;
+        };
+
+        listaCompras = "";
+        function adicionarCompras() {
+            var compra = document.getElementById("produtoInput").value-1;
+            listaCompras += "Código: " + produtos[compra].codigo + ", Descrição: " + produtos[compra].descricao + ", Quantidade: " + produtos[compra].quantidade + "<br>";
+            Lista.innerHTML = listaCompras;
+            textoCompra.innerHTML = "Lista De Compras";
+        };
+
+        function relatorioCompras() {
+            aComprar = []
+            textoCompra.innerHTML = "Relatório de compras";
+            for (i=0; i < produtos.length;i++) {
+                if (produtos[i].quantidade<11) {
+                    aComprar.push(produtos[i].codigo)
+                }; 
+            };
+                Lista.innerHTML = aComprar;
+        };
+    </script>
 </body>
 
 </html>
