@@ -55,22 +55,18 @@
         };
 
         listaCompras = "";
+        aComprar = []
         function adicionarCompras() {
-            var compra = document.getElementById("produtoInput").value-1;
-            listaCompras += "Código: " + produtos[compra].codigo + ", Descrição: " + produtos[compra].descricao + ", Quantidade: " + produtos[compra].quantidade + "<br>";
-            Lista.innerHTML = listaCompras;
-            textoCompra.innerHTML = "Lista De Compras";
+            let compra = document.getElementById("produtoInput").value;
+            aComprar.push({codigo:compra});
         };
 
         function relatorioCompras() {
-            aComprar = []
             textoCompra.innerHTML = "Relatório de compras";
-            for (i=0; i < produtos.length;i++) {
-                if (produtos[i].quantidade<11) {
-                    aComprar.push(produtos[i].codigo)
-                }; 
+            for (let i=0; i < produtos.length;i++) {
+                let val =+  aComprar[i].codigo
             };
-                Lista.innerHTML = aComprar;
+            document.getElementById("Lista").innerHTML = val;
         };
     </script>
 </body>

@@ -1,0 +1,43 @@
+empresa com frota de automóveis de entrega e transporte de pessoas
+
+-automoveis clas,
+atributos {
+-marca
+-modelo
+-ultimaRevisão
+-ultimaLavagem
+}
+
+analizar se deve fazer uma limpeza ou revisão
+function tempoAteAcao(acao,tempoEntreAcao,tempoDesdeAcao){
+  if (tempoEntreAcoa < tempoDesdeAcao){
+    printar (hora de fazer uma + acao)
+  } else{
+    printar (faltam + tempoEntreAcao-tempoDesdeAcao + dias até a proxima + acao)
+  }
+}
+
+analizar o desempenho do objeto
+function trabalho (atendimentos)
+  printar (foram feitos : + (total += atendimentos + total) + esse mês)
+
+-motocicletas clas,
+atributos {
+-numeroPedidos
+}
+
+trabalho(numeroPedidos)
+tempoAteAcao(lavagem,30,ultimaLavagem)
+tempoAteAcao(revisão,90,ultimaRevisão)
+
+-carros clas,
+atributos {
+-numeroPassageiros
+}
+
+trabalho (numeroPassageiros)
+tempoAteAcao(lavagem,60,ultimaLavagem)
+tempoAteAcao(revisão,365,ultimaRevisão)
+
+motocicletas extends automoveis
+carros extends automoveis

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Eventos</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #dcebf0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 28px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .evento {
+            margin-bottom: 50px;
+        }
+
+        .btn-ingressos {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body onload="listarEvento()">
+    <div class="container">
+        <h2>Eventos</h2>
+        <div id="dadosEvento"></div>
+        <button class="btn-ingressos" onclick="ingressos()">Meus Ingressos</button>
+    </div>
+
+    <script>
+        var evento = [
+            { local: "Maravilha", horario: 19, },
+            { local: 'SaoPaulo', horario: 21 },
+            { local: 'Chapeco', horario: 18 },
+            { local: 'Pinhalzinho', horario: 20 },
+            { local: 'Lages', horario: 19 },
+        ];
+
+        function listarEvento() {
+            var conteudo = "";
+
+            for (let i = 0; i < evento.length; i++) {
+                conteudo += "<div class='evento'>local: " + evento[i].local + ", horario: " + evento[i].horario + " - " + "<button onclick=\"comprarEvento(" + i + ")\">Comprar</button></div>";
+            }
+            document.getElementById("dadosEvento").innerHTML = conteudo;
+        }
+
+        function comprarEvento(index) {
+            alert("Evento " + evento[index].local + " às " + evento[index].horario);
+            window.location.href = "C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Pagamento.html";
+        }
+
+        function ingressos() {
+            window.location.href = "C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/ingressos.html"
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        background-color: #dcebf0;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin: auto;
+        color: #333;
+        font-size: 50px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    div.logar {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Logar</h1>
+        <h2>Usuario:</h2>
+        <input type="text" id="userInput"> <br><br>
+        <h2>Senha:</h2><br>
+        <input type="password" id="senhaInput">
+        <button calss ="Logar"onclick="validarLogin()">Login</button>
+    </div>
+    <script>
+        usuario = [
+            { user: "felipe", password: 123 },
+            { user: "lucas", password: 321 }
+        ];
+
+        function validarLogin() {
+            let userAns = document.getElementById("userInput").value
+            let passAns = document.getElementById("senhaInput").value
+
+            for (i = 0; i < usuario.length; i++) {
+                let userArrey = usuario[i].user;
+                let passArrey = usuario[i].password;
+
+                if ((userAns == userArrey) && (passAns == passArrey)) {
+                    window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html";
+                } else {
+                    window.alert("usúario ou senha incorretos");
+                };
+                break;
+            }
+        };
+
+    </script>
+</body>
+
+</html>

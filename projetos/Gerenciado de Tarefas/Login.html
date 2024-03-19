@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<boby>
+    <div>
+        <h2>Insira seu Usuario:</h2>
+        <input type="text" id="userInput">
+        <h2>Insira sua senha:</h2>
+        <input type="password" id="senhaInput">
+        <button onclick="validarLogin()">Login</button>
+    </div>
+<script>
+     usuarios = [
+        {user : "alencar" ,senha: 123}
+
+        ];
+
+    function validarLogin () {
+        if  (document.getElementById("userInput").value == usuarios.user ) and (document.getElementById("senhaInput").value == usuarios.senha ); {
+            window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Gerenciado de Tarefas/gerenciador.html";
+        }
+    };
+
+</script>    
+</boby>

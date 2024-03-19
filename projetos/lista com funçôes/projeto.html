@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<boby>
+    <input id="input">
+    <button onclick="addIten()">Adicionar Iten</button>
+    <button onclick="sizeList()">Tamanho da Lista</button> <br>
+    <button onclick="removeRan()">Remover Aleatório</button>
+    <button onclick="removeLast()">Remover Último</button>
+    <div id="textSize"></div>
+    <div id="size"></div>  <br>
+    <div>lista</div>
+    <div id="lista"></div>
+<script>
+    let itens = []
+
+    function atualizar () {
+        let guardados = ""
+        for (let i = 0 ; i < itens.length ; i++){
+            guardados += itens[i].iten + "<br>";
+        };
+        document.getElementById("lista").innerHTML = guardados
+        input.value = ""
+    };
+
+    function addIten (){
+        let iten = document.getElementById("input").value;
+        itens.push({iten:iten})
+        atualizar()
+    };
+
+    function sizeList () {
+        let tamanho = itens.length
+        document.getElementById("size").innerHTML = tamanho
+        document.getElementById("textSize").innerHTML = "Tamanho da Lista"
+    };
+
+    function removeLast () {
+        itens.pop()
+        atualizar()
+    };
+
+    function removeRan () {
+        let aleatorio = Math.round ( Math.random () * ( itens.length - 1 ))
+        itens.splice ( aleatorio , 1 ) 
+        atualizar ()
+    };
+</script>
+</boby>
+</html>

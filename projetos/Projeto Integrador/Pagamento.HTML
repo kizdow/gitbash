@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #dcebf0;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .container1 {
+        top: 20px;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .conteiner2 {
+        position: absolute;
+        left: 500px;
+        top: 20px;
+        width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    div.absolutePagar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 100px;
+    }
+    div.absoluteComprar {
+        position: absolute;
+        right: 20px;
+    }
+</style>
+
+<head>
+</head>
+
+<body onload="exibirIngressos()">
+    <div class="container1">
+        <div> Assentos Disponiveis</div> <br>
+        <div class="botaoCompra" id="precoIngresso"></div> <br>
+    </div>
+    <div class="conteiner2">
+        <div>Carrinho de Compras</div> <br>
+        <div class="static" id="carrinho"></div> <br>
+        <div class="relative" id="botaoLimpar"></div> <br>
+        <div class="absolutePagar"id="botaoPagar"></div>
+    </div>
+    <script>
+        let ingressos = [
+            { assento: "Assento 1", value: 39.99 },
+            { assento: "Assento 2", value: 50.00 },
+            { assento: "Assento 3", value: 45.50 },
+            { assento: "Assento 4", value: 50.99 },
+            { assento: "Assento 9", value: 50.00 },
+            { assento: "Assento 10", value: 75.99 },
+            { assento: "Assento 11", value: 75.99 },
+            { assento: "Assento 12", value: 75.99 }
+        ];
+        let valores = "";
+        let soma = 0;
+        let Carrinho = [];
+
+        function exibirIngressos() {
+            let valoresIngressos = ""
+            for (let i = 0; i < ingressos.length; i++) {
+                valoresIngressos += ingressos[i].assento + " - " + "<button class=\"absoluteComprar\" onclick=\"comprar(" + i + ")\">" + "R$" + Math.round((ingressos[i].value) * 100) / 100 + "</button><br>";
+            };
+            document.getElementById("precoIngresso").innerHTML = valoresIngressos;
+        };
+
+        function comprar(i) {
+
+            if (Carrinho.includes(ingressos[i].assento)) {
+                window.alert("Este ingresso já esta no carrinho");
+            } else {
+                soma =Math.round((soma += ingressos[i].value) * 100) / 100;
+                valores += "R$" + ingressos[i].value + "  " + ingressos[i].assento + "<br>";
+                document.getElementById("carrinho").innerHTML = valores;
+                document.getElementById("botaoPagar").innerHTML = "<button onclick=\"pagar()\">" + "R$" + soma + "</button>";
+                document.getElementById("botaoLimpar").innerHTML = "<button onclick=\"limpar()\">Limpar Carrinho</button>";
+                Carrinho.push(ingressos[i].assento);
+            };
+        };
+
+        function pagar() {
+            exibirIngressos();
+            limpar();
+            window.alert("Valor pago, os ingressos foram adicionados à sua biblioteca. Obrigado!");
+            window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html";
+        };
+
+        function limpar() {
+            document.getElementById("carrinho").innerHTML = "";
+            document.getElementById("botaoPagar").innerHTML = "";
+            document.getElementById("botaoLimpar").innerHTML = "";
+            valores = "";
+            Carrinho = [];
+            soma = 0;
+        };
+
+    </script>
+</body>
+
+</html>
