@@ -1,5 +1,5 @@
 // token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZV91c3VhcmlvIjoiQ3Jpc3RpYW4gQm9uaSIsImlhdCI6MTcxNTI5OTkxOCwiZXhwIjoxNzE1MzAzNTE4fQ.rXjTHtaJA0i-5of63D36nbCo0IDaYOJmDonHObTf2aE
-// segredo_huyjiohfesuafreioyxeahwygniafgidageLDELOUDnftr7249qtgnenwiqtfgxmerwafe
+// senha: segredo_huyjiohfesuafreioyxeahwygniafgidageLDELOUDnftr7249qtgnenwiqtfgxmerwafe
 const express = require('express');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
@@ -62,7 +62,7 @@ const pool = mysql.createPool({
     password: '',
     database: 'api_db',
     waitForConnections: true,
-    connecionLimit: 5,
+    connectionLimit: 5,
     queueLimit: 0,
 });
 
